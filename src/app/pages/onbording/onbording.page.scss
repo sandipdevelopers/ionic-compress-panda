@@ -1,0 +1,23 @@
+#container {
+    height: 90vh;
+}
+
+.image {
+    height: 70vh;
+}
+
+swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+swiper-container {
+    --swiper-pagination-bullet-inactive-color: #000000;
+    --swiper-pagination-color: var(--ion-color-secondary, #000000);
+    
+  }
+  .swiper-pagination-bullet-active {
+    width: 26px;
+    border-radius: 10px;
+  }

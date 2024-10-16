@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Split Video
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="video-container" *ngIf="gs.seletedVideo">
+    <video #videoPlayer playsinline preload="metadata">
+      Your browser does not support the video tag.
+    </video>
+    <div class="custom-controls">
+      <ion-button size="small" (click)="togglePlayPause()">
+        <ion-icon [name]="isPlaying ? 'pause' : 'play'"></ion-icon>
+      </ion-button>
+      <ion-button size="small" (click)="toggleMute()">
+        <ion-icon [name]="isMuted ? 'volume-mute' : 'volume-high'"></ion-icon>
+      </ion-button>
+      <!-- <ion-button size="small" (click)="toggleFullScreen()">
+        <ion-icon [name]="isFullScreen ? 'contract' : 'expand'"></ion-icon>
+      </ion-button> -->
+    </div>
+    <div class="custom-controls ion-margin-top">
+      <ion-select mode="md" [(ngModel)]="seletedDuration" label="Select Split Duration" label-placement="floating"
+        fill="outline">
+        <ion-select-option *ngFor="let duration of splitOptions"
+          [value]="duration.value">{{duration.label}}</ion-select-option>
+      </ion-select>
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border" *ngIf="gs.seletedVideo">
+  <ion-toolbar style="padding: 1px !important;" class="ion-text-center">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-button expand="full" color="primary" (click)="openSaveFileModal()">
+          <ion-icon name="save" slot="start"></ion-icon>
+          Save
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

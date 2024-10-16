@@ -1,0 +1,115 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar color="secondary">
+    <ion-title>
+      Compress Video
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center">
+    <img class="home-image" src="assets/image/home.jpg" alt="">
+  </div>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" (click)="gs.goToSplitVideo()">
+          <div class="card">
+            <img class="tools-images" src="assets/icons/split.svg" alt="">
+            <br>
+            <ion-text>
+              Split Video
+            </ion-text>
+          </div>
+        </ion-col>
+        
+        <ion-col size="6" (click)="gs.goToVideoCompress()">
+          <div class="card">
+            <img class="tools-images" src="assets/icons/video-compress.svg" alt="">
+            <br>
+            <ion-text>
+              Video Compress
+            </ion-text>
+          </div>
+        </ion-col>
+
+        <ion-col size="6" (click)="gs.goToTrimVideo()">
+          <div class="card">
+            <img class="tools-images" src="assets/icons/trim.svg" alt="">
+            <br>
+            <ion-text>
+              Trim Video
+            </ion-text>
+          </div>
+        </ion-col>
+        <ion-col size="6" (click)="gs.goToVideoToMp3()">
+          <div class="card">
+            <img class="tools-images" src="assets/icons/music.svg" alt="">
+            <br>
+            <ion-text>
+              Video To MP3
+            </ion-text>
+          </div>
+        </ion-col>
+        <ion-col size="6" (click)="gs.goToChangeAudio()">
+          <div class="card">
+            <img class="tools-images" src="assets/icons/replace-music.svg" alt="">
+            <br>
+            <ion-text>
+              Change Audio
+            </ion-text>
+          </div>
+        </ion-col>
+       
+        <ion-col size="6" (click)="gs.goToSlowMotion()">
+          <div class="card">
+            <img class="tools-images" src="assets/icons/slow.svg" alt="">
+            <br>
+            <ion-text>
+              Slow Motion
+            </ion-text>
+          </div>
+        </ion-col>
+
+
+
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="padding: 1px !important;" color="secondary" *ngIf="saveFile.allFolder && saveFile.allFolder.length">
+
+    <ion-segment mode="ios" [scrollable]="true" (ionChange)="segmentChange()" [(ngModel)]="seletedFolderName"
+      name="sagment">
+      <ion-segment-button *ngFor="let folder of saveFile.allFolder" [value]="folder.name">
+        <ion-label> {{folder.name | formatName}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-toolbar>
+
+  <ion-toolbar style="padding: 1px !important;" color="secondary" class="ion-padding-none">
+    <ion-row>
+      <ion-col size="4">
+        <div class="ion-text-center">
+          <img class="icon" src="assets/icons/home.svg" alt="">
+          <p class="icon-text">Home</p>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="ion-text-center" (click)="gs.goToVideoList(saveFile.allFolder[0].name)">
+          <img class="icon" src="assets/icons/video.svg" alt="">
+          <p class="icon-text">My Video</p>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="ion-text-center" (click)="gs.goToSettings()">
+          <img class="icon" src="assets/icons/setting.svg" alt="">
+          <p class="icon-text">Settings</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

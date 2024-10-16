@@ -1,0 +1,31 @@
+.card {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #000000;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+    background-color: #31363f1f;
+}
+
+ion-item {
+    --background: #e6e7e8
+}
+
+ion-segment {
+    margin-left: 14px;
+    margin-right: 14px;
+}
+
+ion-note {
+    justify-content: space-between;
+    display: flex;
+    font-size: small;
+}
+ion-item {
+    --padding-start: 0px;
+}
+
+ion-avatar {
+    height: 32px;
+    width: 32px;
+}

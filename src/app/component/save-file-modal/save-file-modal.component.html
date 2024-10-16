@@ -1,0 +1,27 @@
+
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar color="secondary">
+    <ion-title>Save</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon (click)="dismiss()"  class="icon-large-custom" name="close-circle"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-input mode="md" [(ngModel)]="fileName" name="fileName" label="File Name" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+    <ion-select mode="md"  [(ngModel)]="folderName" label="Select Folder" class="ion-margin-top" label-placement="floating" fill="outline">
+      <ion-select-option *ngFor="let folder of saveFile.allFolder" [value]="folder.name" >{{folder.name | formatName}}</ion-select-option>
+    </ion-select>
+    <ion-row>
+      <ion-col class="ion-no-padding ion-margin-top">
+        <ion-button expand="full" color="primary" (click)="saveToFolder()">
+          <ion-icon name="save" slot="start"></ion-icon>
+          Save
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

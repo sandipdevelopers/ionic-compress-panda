@@ -1,0 +1,30 @@
+<ion-content class="ion-padding">
+  <div id="container">
+    <swiper-container style="height: 80vh;" #swiper [pagination]="true"  [allowTouchMove]="false" [slidesperview]="1" [loop]="false">
+      <swiper-slide>
+        <img src="assets/onbording/1.jpg" alt="">
+      </swiper-slide>
+      
+      <swiper-slide>
+        <img src="assets/onbording/2.jpg" alt="">
+      </swiper-slide>
+
+      <swiper-slide>
+        <img src="assets/onbording/3.jpg" alt="">
+      </swiper-slide>
+
+    </swiper-container>
+  </div>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed"  *ngIf="swiperRef?.nativeElement.swiper.activeIndex !== 2">
+    <ion-fab-button (click)="sliderChanges()" color="secondary">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>  
+  
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed"  *ngIf="swiperRef?.nativeElement.swiper.activeIndex === 2">
+    <ion-fab-button (click)="getStarted()" color="secondary">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

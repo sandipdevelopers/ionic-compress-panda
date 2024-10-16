@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <h4 style="margin: 0; margin-bottom: 10px;">Support & About</h4>
+  <div class="card">
+      <ion-item [button]="true"  lines="none"(click)="gs.rateApp()">
+        <ion-icon color="danger" slot="start" name="list-circle" size="large"></ion-icon>
+        <ion-label>RateUs</ion-label>
+      </ion-item>
+  </div>
+
+  <div class="card">
+      <ion-item [button]="true" lines="none" (click)="gs.shareApp()">
+        <ion-icon color="tertiary" slot="start" name="list-circle" size="large"></ion-icon>
+        <ion-label>ShareUs</ion-label>
+      </ion-item>
+  </div>
+</ion-content>
+
+<ion-footer >
+  <ion-toolbar style="padding: 1px !important;" color="secondary" class="ion-padding-none">
+    <ion-title class="ion-text-center">Version : {{gs.app_vesion}}</ion-title>
+  </ion-toolbar>
+</ion-footer>

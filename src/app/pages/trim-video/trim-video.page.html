@@ -1,0 +1,51 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Trim Video
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <div class="video-container" *ngIf="gs.seletedVideo">
+    <video #videoPlayer playsinline preload="metadata">
+      Your browser does not support the video tag.
+    </video>
+    <div class="custom-controls">
+      <ion-button  size="small" (click)="togglePlayPause()">
+        <ion-icon [name]="isPlaying ? 'pause' : 'play'"></ion-icon>
+      </ion-button>
+      <ion-button  size="small" (click)="toggleMute()">
+        <ion-icon [name]="isMuted ? 'volume-mute' : 'volume-high'"></ion-icon>
+      </ion-button>
+      <!-- <ion-button  size="small" (click)="toggleFullScreen()">
+        <ion-icon [name]="isFullScreen ? 'contract' : 'expand'"></ion-icon>
+      </ion-button> -->
+    </div>
+
+    <div class="custom-controls">
+      <ion-range (ionChange)="rangeChange()" [pin]="true" [(ngModel)]="seletedDuration" aria-label="Start Point" [min]="0" [max]="duration"  [pinFormatter]="pinFormatter" [dualKnobs]="true" [value]="{ lower: 20, upper: 80 }">
+        <ion-label slot="start">{{seletedDuration.lower | timeFormat}}</ion-label>
+        <ion-label slot="end">{{seletedDuration.upper | timeFormat}}</ion-label>
+      </ion-range>
+     
+    </div>
+  </div>
+</ion-content>
+<!-- *ngIf="gs.seletedVideo" -->
+<ion-footer  class="ion-no-border" *ngIf="gs.seletedVideo">
+  <ion-toolbar style="padding: 1px !important;" class="ion-text-center">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-button expand="full" color="primary" (click)="openSaveFileModal()">
+          <ion-icon name="save" slot="start"></ion-icon>
+          Save
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

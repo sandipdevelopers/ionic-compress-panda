@@ -64,4 +64,3 @@
   - Share Video Status Maker with friends and family.
   - Includes direct links to download the app.
 
-# ionic-video-trim
